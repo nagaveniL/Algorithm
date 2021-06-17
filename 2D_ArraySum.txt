@@ -1,0 +1,37 @@
+1. Read a 2 dimentional array (3*3) - m = 3 and n = 3
+2. Array elements are given in single line separated by space.
+3. Sum the even elements (row + col = even) values.
+	If (i+j % 2 == 2) 
+	SumEven = sumEven + arr[i][j]
+4. Sum the odd elements (row + col = odd) values.
+	else
+	SumOdd = SumOdd + arr[i][j]
+5. Print SumEven and SumOdd values to console.
+
+
+00 01 02
+10 11 12
+20 21 22
+
+Code to ready the 2 - D array -->
+
+	string inp = Console.ReadLine();
+        //Console.WriteLine(inp);
+        string[] input = inp.Split(" ").ToArray();
+        int row_size = int.Parse(input[0]);        
+        int col_size = int.Parse(input[1]);
+        int[,] arr = new int[row_size,col_size]; 
+        int[,] arrRev = new int[col_size,row_size];
+        //int[][] arrRev = new int[col_size][row_size];
+
+        for (int i=0; i<row_size;i++)
+        {
+            string[] rows = ((Console.ReadLine()).Split(" ")).ToArray();
+            for (int j=0; j<col_size;j++)
+            {
+                //arr[i,j] = int.Parse(Console.ReadLine());                
+                arr[i,j] = int.Parse(rows[j]);
+                //Console.Write(" "  + arr[i,j]);
+            }
+            //Console.WriteLine();
+        }

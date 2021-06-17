@@ -1,0 +1,35 @@
+//8 - 1000
+8%2 -- 0 , 4
+4%2 -- 0 , 2
+2%2 -- 0 , 1
+
+7%2 -- 1 , 3
+3%2 -- 1 , 1
+
+4%2 -- 0 , 2
+2%2 -- 0 , 1
+
+using System;
+public class BinaryNumber 
+{
+public static void Main()
+{
+int n = Console.ReadLine();
+List<int> list = new List<int>();
+
+}
+public int CountOnBits(int n, list)
+{
+//if(n%2 == 0) ? list.Add(0) : list.Add(1);
+if(n%2 == 0)
+{
+list.Add(0);
+}
+else
+{
+list.Add(1);
+}
+n /= 2;
+return CountOnBits(n,list);
+}
+}

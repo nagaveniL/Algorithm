@@ -1,0 +1,22 @@
+using System;
+using System.Linq;
+public class BagNo
+{
+    public static void Main()
+    {
+      string[] input = Console.ReadLine().Split(" ").ToArray();
+      if(input.Length > 4)
+      {
+       Console.Write("output:");
+      }
+      else
+      {
+        Console.Write("output");
+      }
+      for (int i = 1; i < input.Length ; i++)
+      {  
+         Console.Write(" ");      
+         Console.Write(input[i]);         
+      }    
+    }
+}

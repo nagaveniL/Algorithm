@@ -1,0 +1,45 @@
+using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+public class TalentProgram
+{
+    public static void Main()
+    {
+        var candidates = int.Parse(Console.ReadLine());
+        var female = new List<int>();  
+        var male = new List<int>();             
+        for(int i=0;i<candidates;i++)
+        {
+            int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '), int.Parse);
+      if(arr[0] == 1) 
+      {
+        male.Add(arr[1]);
+      }
+      else
+      {
+       female.Add(arr[1])  ;      
+      }
+        }
+        var sortFemaleList = from s in female
+                            orderby s descending
+                            select s;
+        var sortmaleList = from s in male
+                            orderby s descending
+                            select s; 
+
+        var sortMEList = sortmaleList.ToList();
+        var sortFeList = sortFemaleList.ToList();                
+        for(int i=0;i<female.Count;i++)
+        {  
+            Console.Write(sortFeList[i]);
+            Console.Write(' ');
+        } 
+        
+        for(int i=0;i<male.Count;i++)
+        { 
+           Console.Write(sortMEList[i]); 
+           Console.Write(' ');
+        }    
+    }
+}

@@ -1,0 +1,64 @@
+using System;
+using System.Text;
+using System.Linq; 
+public class HelpOut{
+static int len;
+static int count;
+static int[] arr;
+static public void Main(){
+count = 0;
+len = Convert.ToInt32(Console.ReadLine());
+arr = new int[len];
+string input = (Console.ReadLine()).Trim();
+if (!input.Contains(' '))
+{  
+    arr[0]= Convert.ToInt32(input);    
+for(int i=1;i<len;i++)
+{    
+    arr[i] = int.Parse(Console.ReadLine());
+}
+}
+else
+{    
+arr = input.Split(' ').Select(int.Parse).ToArray();
+}
+while(VerifyIfZeroArr())
+{   
+    bool Iseven_flag = true; 
+    for (int i=0;i<arr.Length;i++)
+    {
+        if (arr[i] % 2 != 0)
+        {
+           Iseven_flag = false;
+           arr[i] = arr[i] - 1;
+           count = count + 1;
+        }
+    }
+    if (Iseven_flag)
+    {
+        DivideByTwo();
+        count = count + 1;
+    } 
+}
+Console.WriteLine(count);
+}
+ static bool VerifyIfZeroArr()
+{
+  bool IsZero = false;
+  for (int i=0;i<arr.Length;i++)
+  {
+    if(arr[i] != 0)
+    {
+        IsZero = true;
+    } 
+  }   
+ return IsZero;
+}
+ static void DivideByTwo()
+{
+for (int i=0;i<arr.Length;i++)
+{
+    arr[i]  = arr[i] / 2; 
+}
+}
+}

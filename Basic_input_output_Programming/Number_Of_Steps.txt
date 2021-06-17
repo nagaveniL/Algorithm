@@ -1,0 +1,77 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+public class NoOfSteps
+{
+    public static void Main()
+    {
+        var obj = new NoOfSteps();
+        int n = Convert.ToInt32(Console.ReadLine());
+        int Totalsteps = 0;
+        var a = Console.ReadLine()
+                .Split(' ')
+                .Select(x => int.Parse(x))
+                .ToList();
+
+        var b = Console.ReadLine()
+                .Split(' ')
+                .Select(x => int.Parse(x))
+                .ToList();
+
+        var sortElement = from s in a
+                          orderby s
+                          select s;
+
+        List<int> sortElementList = sortElement.ToList();
+        int min = sortElementList[0];
+       // bool isNotPossible = false;
+
+        //Call method by passing min value 
+        Totalsteps = obj.MakeEleSame(min,a,b,n);       
+            Console.WriteLine(Totalsteps);
+       
+    }
+
+    public int MakeEleSame(int min, List<int> a, List<int> b, int n)
+    {
+        int steps = 0;
+        //List<int> aTemp = a;
+        // List<int> aTemp = new List<int>();
+        // aTemp = a;
+        List<int> aTemp = new List<int>(a);
+        bool isPossible = true;       
+        for (int i = 0; i < n; i++)
+            {
+               if (a[i] == min)
+                {
+                    continue;
+                }
+                else
+                {
+                    int p = 0;
+                    while (a[i] > min)
+                    {
+                        a[i] -= b[i];
+                        if (a[i] == min)
+                        {
+                            p++;
+                            break;
+                        }
+                        p++;
+                    }
+                    if (a[i] == min)
+                    {
+                        steps += p;
+                    }
+                    else
+                    {
+                        steps = 0;                       
+                        isPossible = false;                                              
+                        min--;
+                        break;
+                }
+                }
+            }
+        return isPossible ? steps : (min < 0) ? -1 : MakeEleSame(min, aTemp, b, n);
+    }
+}

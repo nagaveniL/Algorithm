@@ -1,0 +1,26 @@
+using System;
+using System.Linq;
+public class simpleSearch
+{
+    public static void Main()
+    {
+        int noOfElements = int.Parse(Console.ReadLine());
+        var numbers = Console
+                    .ReadLine()
+                    .Split(" ")
+                    .Select(x => int.Parse(x))
+                    .ToList();
+        int element = int.Parse(Console.ReadLine());
+        int index = -1;
+        for(int i=0; i<noOfElements; i++)
+        {
+            if(numbers[i] == element)
+            {
+                index = i;
+            }
+        }
+
+        Console.WriteLine(index);
+
+    }
+}

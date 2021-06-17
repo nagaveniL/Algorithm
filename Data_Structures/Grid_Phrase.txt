@@ -1,0 +1,128 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GridPhrase
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            const string strtocount = "SABA";
+            int count = 0;
+            var input = Console.ReadLine().Split(' ');
+            int rows = int.Parse(input[0]);
+            int columns = int.Parse(input[1]);
+
+            var arr = new string[rows, columns];
+            var searchpt = new searchPoint();
+            var indexList = new List<searchPoint>();
+            //read input 
+            for (int i = 0; i < rows; i++)
+            {
+                Char[] rowInput = Console.ReadLine().ToCharArray();
+                for (int j = 0; j < columns; j++)
+                {
+                    arr[i, j] = rowInput[j].ToString();
+                    if (arr[i, j].ToUpper() == "S")
+                    {
+                        searchpt.row = i;
+                        searchpt.column = j;
+                        indexList.Add(searchpt);
+                    }
+                }
+            }
+
+            //Horizontal search
+            foreach (var index in indexList)
+            {
+                var str = new StringBuilder();
+                if ((index.row + strtocount.Length) <= rows)
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        str = str.Append(arr[index.row + i, index.column]);
+                    }
+                    if (strtocount == str.ToString().ToUpper())
+                    {
+                        count++;
+                    }
+                    str.Clear();
+                }
+                if ((index.column + strtocount.Length) <= columns)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        str = str.Append(arr[index.row, index.column + j]);
+                    }
+                    if (strtocount == str.ToString().ToUpper())
+                    {
+                        count++;
+                    }
+                    str.Clear();
+                }
+                if ((index.column + strtocount.Length ) <= columns && (index.row + strtocount.Length ) <= rows)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        str = str.Append(arr[index.row + j, index.column + j]);
+                    }
+                    if (strtocount == str.ToString().ToUpper())
+                    {
+                        count++;
+                    }
+                    str.Clear();
+                }
+               /* if ((index.column - strtocount.Length + 1) >= 0 && (index.row - strtocount.Length + 1) >= 0)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        str = str.Append(arr[index.row - j, index.column - j]);
+                    }
+                    if (strtocount == str.ToString().ToUpper())
+                    {
+                        count++;
+                    }
+                   str.Clear();
+                } */
+                if ((index.column + strtocount.Length) <= columns && (index.row - strtocount.Length + 1) >= 0)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        str = str.Append(arr[index.row - j, index.column + j]);
+                    }
+                    if (strtocount == str.ToString().ToUpper())
+                    {
+                        count++;
+                    }
+                    str.Clear();
+                }
+               /* if ((index.column - strtocount.Length - 1) >= 0 && (index.row + strtocount.Length - 1) < rows)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        str = str.Append(arr[index.row + j, index.column - j]);
+                    }
+                    if (strtocount == str.ToString().ToUpper())
+                    {
+                        count++;
+                    }
+                    str.Clear();
+                }
+                */
+
+            }
+            Console.WriteLine(count);
+        }
+    }
+
+    public struct searchPoint
+    {
+        public int row;
+        public int column;
+    }
+
+}
+

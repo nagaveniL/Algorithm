@@ -1,0 +1,40 @@
+using System;
+using System.Text;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Neutral
+{
+	public static StringBuilder strNeutralised = new StringBuilder();
+	public static bool isNeutralised = true;
+	public static void Main()
+	{		
+		int len = int.Parse(Console.ReadLine());	
+	    string input = Console.ReadLine();
+		strNeutralised = strNeutralised.Append(input);		
+		while (isNeutralised)
+		{
+			isNeutralised = true;
+			IsNeutralised();
+		}		
+		Console.WriteLine(strNeutralised.Length);
+		Console.WriteLine(strNeutralised.ToString().Trim());
+	}
+		public static void IsNeutralised()
+		{
+			for (int i = 0; i < strNeutralised.Length - 1;)
+		{			
+			if (strNeutralised[i] == strNeutralised[i + 1])
+			{
+				strNeutralised.Remove(i, 2);					
+				i = i + 1;
+				isNeutralised = false;
+			}
+			else
+			{
+				i = i + 1;
+			}
+		}
+		isNeutralised = !isNeutralised;
+		}		
+}

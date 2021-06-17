@@ -1,0 +1,39 @@
+
+1. Read the length of the array
+2. Read the array
+3. Declare count and set to 0.
+3. Set Iseven_flag to true.
+4. While loop with CheckZeroArray() 
+- returns false if all the elements are zero if not return false
+4. Loop through entire array
+4.i. If odd, set flag to false, increase count.
+4.ii. If even ,do nothing
+5.Check Iseven_flag is true
+5.i. If true, call method DivideByTwo()
+5.ii. If false, do nothing.
+6. Out of while loop, print the count value
+
+
+Problem statement - Inputs for Array 
+		   	 i. Each element in new lines - works
+		   	 ii. All elements in single line - problem
+Analysis	  - Two methods to read inputs - OneElement() and AllElement()
+		  - How do you decide to use OneElement() or AllElement() methods 
+			- depends on no. of elements len ? No it cant be
+			- check for whitespace ? No 
+			- more than two numbers in single line ?No
+			- Read until the ReadLine() is empty/null value		
+
+
+Problem statement - Unable to convert 10000+ string (10000 no's in single line) to array 
+			
+Analysis 	  - Solved using LINQ
+		  - int[] arr = input.Split(' ').Select(int.Parse).ToArray();
+		  - Input is read as single line string
+		  - Input is split by ' ' and converted to integer and array is updated.
+
+
+
+
+
+

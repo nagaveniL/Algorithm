@@ -1,0 +1,56 @@
+
+aaacccbbcccd --> accd --> ad
+Algorithm -->
+
+1. Read length of input string.
+2. Read the input string.
+3. Declare a string builder strNeutralised and assign to results from step 2.
+4. int i = 0;
+5. While(i < strNeutralising.Length - 1)
+6. if (strNeutralised[i] == strNeutralised[i+1]) ? 
+7. If true remove the i and i+1 element from strNeutralising string and assign i = 0(ad)
+8. If false i = i + 1;
+9. Print strNeutralising.Length 
+10. Print strNeutralising
+
+
+Example -->
+
+1. 12
+2. aaacccbbcccd 
+3. strNeutralised = "aaacccbbcccd"
+4. i = 0;
+5. 
+	i.	while(0 < 11) --> "a" == "a" ? -->  acccbbcccd & i = 0
+	ii. 	while(0 < 9) --> "a" == "c" ? -->  i = 1
+	iii.    while(1 < 9) --> "c" == "c" ? --> acbbcccd & i = 0
+	iv. 	while(0 < 7)  --> "a" == "c" ? --> i = 1
+	v. 	while(1 < 7)  --> "c" == "b" ? --> i = 2
+	vi. 	while(2 < 7)  --> "b" == "b" ? --> accccd & i = 0
+	vii.	while(0 < 5)  --> "a" == "c" ? --> i = 1
+	viii.	while(1 < 5)  --> "c" == "c" ? --> accd & i = 0
+	ix.	while(0 < 3)  --> "a" == "c" ? --> i = 1
+	x.	while(1 < 3)  --> "c" == "c" ? --> ad & i = 0
+	xi.	while(0 < 1)  --> "a" == "d" ? --> i = 1
+	xii.	while(1 < 1)  --> end of loop
+6. 2
+7. ad
+
+
+Problem 	: Time limit exceeded for large string (> 2 sec)
+
+Analysis	: Optimisation of code required
+
+Example -->
+
+1. 12
+2. aaacccbbcccd 
+3. strNeutralised = "aaacccbbcccd"
+4. len = strNeutralised.Length
+5. remove "aa","cc","bb","cc" --> strNeutralised = "accd" 
+6. check if strNeutralised.Length == len
+7. if false, remove "cc" --> strNeutralised = "ad"
+8. if true, print count of strNeutralised and strNeutralised 
+
+
+

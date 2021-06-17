@@ -1,0 +1,18 @@
+Function ( resolve, reject)
+
+
+------------------------->
+XMLHTTPRequest()
+function Get(url)
+{
+return new promise(function () {var xmlhttp = new XMLHTTPRequest();
+xmlhttp.open('get',url);
+xmlhttp.onload = function (){
+
+IF (xmlhttp.Status == "200" || xmlhttp.statustext = "OK")
+{
+return
+}
+}
+} 
+}

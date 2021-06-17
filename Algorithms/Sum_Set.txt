@@ -1,0 +1,72 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text;
+public class SumSet
+{    
+    public static void Main()
+    {    
+        SumSet obj = new SumSet();    
+        int noA = int.Parse(Console.ReadLine());
+        var SetA = Console
+                    .ReadLine()
+                    .Split(" ")
+                    .Select(x => int.Parse(x))             
+                    .ToList();
+        
+        var SetASorted = from s in SetA
+                        orderby s
+                        select s;
+
+        List<int> SetASortedList = SetASorted.ToList();
+
+        int noC = int.Parse(Console.ReadLine());
+        var SetC = Console
+                    .ReadLine()
+                    .Split(" ")
+                    .Select(x => int.Parse(x))
+                    .ToList();
+        
+        var SetCSorted =  from s in SetC
+                        orderby s
+                        select s;  
+         
+        List<int> SetCSortedList = SetCSorted.ToList();
+
+        int posOptions = SetCSortedList[noC - 1] - SetASortedList[noA - 1];        
+        
+        List<int> SetB = new List<int>();
+        int j = 1;
+        int sum = 0;        
+        while(j <= posOptions)
+        {
+            bool flag = true;
+            for(int i=0; i < noA; i++)
+            {                       
+                sum = j + SetASortedList[i];               
+                if (!obj.IsAvailable(sum,SetCSortedList))
+                {
+                    flag = false;
+                }
+            }
+
+            if(flag)
+            {
+                Console.Write(j + " ");
+            } 
+            j++;                   
+        }     
+    }
+
+    public bool IsAvailable(int sum, List<int> SetCSortedList)
+    {
+        foreach (int value in SetCSortedList)
+        {
+            if(value == sum)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}

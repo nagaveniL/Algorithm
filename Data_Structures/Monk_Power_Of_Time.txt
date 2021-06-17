@@ -1,0 +1,49 @@
+using System;
+using System.Text;
+using System.Linq;
+using System.Collections;
+
+public class TimePower
+{
+    public static void Main()
+    {
+        //declarations
+        int Processes;
+        string[] CallOrd;
+        string[] IdealOrd;
+        int Execute = 0;
+        int ChangePOS = 0;
+
+        //Read input
+        Processes = int.Parse(Console.ReadLine());
+        CallOrd = ((Console.ReadLine()).Split(" ")).ToArray();
+        IdealOrd = (Console.ReadLine()).Split(" ");
+
+        //Array to ArrayList()
+        ArrayList arr = new ArrayList(CallOrd);
+        ArrayList arr1 = new ArrayList(IdealOrd);
+
+        //While loop
+        while (arr.Count != 0)
+        {
+            if (arr[0].ToString() == arr1[0].ToString())
+            {
+                //Remove elements
+                arr.RemoveAt(0);
+                arr1.RemoveAt(0);
+                Execute++;
+            }
+            else
+            {
+                object temp = arr[0];
+                for (int i = 0; i < arr.Count - 1; i++)
+                {
+                    arr[i] = arr[i + 1];
+                }
+                arr[arr.Count - 1] = temp;
+                ChangePOS++;
+            }
+        }
+        Console.WriteLine(ChangePOS + Execute);
+    }
+}

@@ -1,0 +1,23 @@
+1. Read no of elements in A as noA.
+2. Read all the elements of A.
+3. Read no of elements in C as noC.
+4. Read all the elements of C.
+5. Declare 
+6. Arrange the elements of A in increasing order.
+7. Arrange the elements of C in increasing order.
+8. Declare MaxA and MaxC and MinC and assign it with max value of A and C.
+9. Declare posOptions and get value from expression MaxC - MaxA.
+10. while(posOptions!=0)
+11. for loop for noA items
+12. sum = posOptions + A[i]
+13. If(sum > MaxC || sum < MinC)
+{
+//do nothing
+}
+else
+{
+B.add(posOptions)
+}
+14. Decrement posOptions
+15. loop end
+16. Print the list B

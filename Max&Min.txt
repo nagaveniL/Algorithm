@@ -1,0 +1,25 @@
+1. Read no. of integer.
+2. Read all integers from console.ReadLine();
+3. Arrange Array integer in desc or asending order.
+4.       1 2 5 0 6
+	 1 > 2 --> false - 1 2 5 3 6
+	 1 > 5 --> false - 1 2 5 0 6
+	 1 > 0 --> true  - 0 2 5 1 6
+	 1 > 6 --> false - 0 2 5 1 6
+
+	 2 > 5 --> false -  0 2 5 1 6
+	 2 > 1 --> true  -  0 1 5 2 6
+	 2 > 6 --> false -  0 1 5 2 6
+
+	 5 > 2 --> true  -  0 1 2 5 6
+	 5 > 6 --> false -  0 1 2 5 6
+
+Two loops required.
+
+
+	
+	 
+
+
+
+

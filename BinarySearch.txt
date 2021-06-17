@@ -1,0 +1,12 @@
+1. Read number of elements.
+2. Read all elements.
+3. Sort all elements in ascending order.
+4. Read number of queries.
+5. for loop for number of queries.
+6. Read the value to be searched.
+7. Use binary algorithm -
+	low = 0
+	high = n - 1
+8. Print the value.
+9. Repeat the same for all N elements.
+	

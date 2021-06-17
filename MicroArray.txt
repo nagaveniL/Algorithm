@@ -1,0 +1,19 @@
+MicroArray -
+1. Read noOfTestCases.
+2. For loop for noOfTestCases.
+2. Read the value of N and K.
+3. Read all the elements in a array.
+4. Declare TimeTaken = 0.
+5. Declare NoGreater = false.
+6. while loop(count!=noofelements)
+6. loop through all elements 
+7. Element < K 
+8. If true,
+	 int diff = K - Element	 
+	 Element = Element + diff ;
+	 TimeTaken = TimeTaken + diff ;
+9. If false, count++
+10. Print TimeTaken.
+
+
+	

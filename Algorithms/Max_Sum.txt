@@ -1,0 +1,51 @@
+using System;
+using System.Linq;
+using System.Text;
+public class MaxMin
+{
+    public static void Main()
+    {
+        int NoOfEle = int.Parse(Console.ReadLine());
+        var numbers = Console
+                     .ReadLine()
+                     .Split(" ")
+                     .Select(x => int.Parse(x))
+                     .ToList();
+        long MaxSum = 0;
+        int count = 0;
+        int count1 = 0;
+        int negative = 0;       
+        for(int i = 0; i < NoOfEle; i++)
+        {
+            if (numbers[i] < 0)
+            {
+               if(count1 == 0)
+               {
+                   negative = numbers[i];                   
+               }
+               else if (numbers[i] > negative)
+               {
+                   negative = numbers[i];                 
+               }
+                 count1 = count1 + 1;
+            }
+            else
+            {
+                MaxSum = MaxSum + numbers[i];
+                count = count + 1;
+            }
+        }
+        if(MaxSum > 0)
+        {
+        Console.WriteLine(MaxSum + " " + count);
+        }
+        else if(count1>0)
+        {
+            Console.WriteLine(negative + " " + "1");
+        }
+        else if(count > 0 && MaxSum == 0)
+        {
+            Console.WriteLine(MaxSum + " " + count);
+        }
+    }
+}

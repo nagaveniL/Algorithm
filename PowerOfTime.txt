@@ -1,0 +1,38 @@
+1. Read no. of processes - N
+2. Read calling order and split by " " and assign it to CallOrder.
+3. Read ideal order and split by " " and assign it to IdealOrder.
+4. Declare execute and changePos int = 0
+5. 
+
+3
+3 2 1 --> 2 1 3 --> 1 3 2
+1 3 2 
+
+While (CallOrder.Length == 0)
+{
+Check if CallOrder[0] == IdealOrder[0]
+i. True --> execute++
+	Remove the element for both CallOrder & IdealOrder
+ii. false --> changePos++
+	call method ShiftLeft() 
+}
+
+6. ShiftLeft()
+{
+temp = CallOrder[i]; 
+for(int i ; i < CallOrder.Length - 1 ; i++)
+{
+CallOrder[i] = CallOrder[i + 1]
+}
+CallOrder[CallOrder.Length - 1] = temp;
+}
+
+temp = 3
+CallOrder[0] = CallOrder[1] = 2
+CallOrder[1] = CallOrder[2] = 1 
+CallOrder[2] = temp = 2
+
+
+
+
+ 
